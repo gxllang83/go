@@ -30,3 +30,8 @@ func setDefaultMulticastSockopts(s int) error {
 	// concurrently across multiple listeners.
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptInt(s, syscall.SOL_SOCKET, syscall.SO_REUSEADDR, 1))
 }
+
+func trySetBindNoPortSockopts(s int) {
+	const IP_BIND_ADDRESS_NO_PORT = 24
+	syscall.SetsockoptInt(s, syscall.IPPROTO_IP, IP_BIND_ADDRESS_NO_PORT, 1)
+}

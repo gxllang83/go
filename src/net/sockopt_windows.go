@@ -36,3 +36,5 @@ func setDefaultMulticastSockopts(s syscall.Handle) error {
 	// concurrently across multiple listeners.
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptInt(s, syscall.SOL_SOCKET, syscall.SO_REUSEADDR, 1))
 }
+
+func trySetBindNoPortSockopts(s syscall.Handle) {}

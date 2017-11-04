@@ -52,3 +52,5 @@ func setDefaultMulticastSockopts(s int) error {
 	// quick draw possible.
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptInt(s, syscall.SOL_SOCKET, syscall.SO_REUSEPORT, 1))
 }
+
+func trySetBindNoPortSockopts(s int) {}

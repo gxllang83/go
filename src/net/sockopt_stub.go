@@ -20,6 +20,8 @@ func setDefaultMulticastSockopts(s int) error {
 	return nil
 }
 
+func trySetBindNoPortSockopts(s int) {}
+
 func setReadBuffer(fd *netFD, bytes int) error {
 	return syscall.ENOPROTOOPT
 }
